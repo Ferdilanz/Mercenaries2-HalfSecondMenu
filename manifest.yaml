@@ -1,0 +1,24 @@
+format: 2
+
+shipment:
+  name: hsmenu
+  title: Half-Second Menu
+  version: 0.85
+  target: retail
+  authors: [Ferdilanz, Badga]
+  description: >-
+    Ferdilanz Half-Second Menu (or HS-Menu for short) is a LuaMenu using the AustinKregel-modified implementation of the LoganW234 Lua-Bridge, along with Essentials Framework (Ess-Lib) to provide an internal, runtime, graphical menu with debug and cheat options. Ordnance Caller by Badga.
+  license: AGPL-3.0
+  tags: [ess, lua, menu, cheat]
+
+supersedes:
+  - { dest: on_key, file: AllInOneSpawnMenu.lua }
+  - { dest: on_key, file: AllInOneSpawnMenu+OrdnanceDrops.lua }
+
+load:
+  requires:
+  - { shipment: lua-bridge, version: "^1.1.1" }
+  - { shipment: ess, version: "^0.7.0"}
+
+contributions:
+  - { kind: add_script, name: hsmenu, source: src/HalfSecondMenu.lua }
