@@ -3,7 +3,7 @@ format: 2
 shipment:
   name: hsmenu
   title: Half-Second Menu
-  version: 0.85
+  version: 0.8.5
   target: retail
   authors: [Ferdilanz, Badga]
   description: >-
