@@ -11,15 +11,13 @@ local menu = Ess.UI.Menu{ title = "Half-Second Menu", key = KEYVAL }
 
 local hsmenu_bInvincibility = Ess.State("HS-Menu Invincibility", { isEnabled = false })
 local hsmenu_bInfiniteAmmo = Ess.State("HS-Menu Infinite Ammo", { isEnabled = false })
-hsmenu_bInvincibility.isEnabled = not hsmenu_bInvincibility.isEnabled
-hsmenu_bInfiniteAmmo.isEnabled = not hsmenu_bInfiniteAmmo.isEnabled
 local playerHost = Ess.Player.character(0)
-local playerClient = Ess.Player.chatacter(1)
+local playerClient = Ess.Player.character(1)
 
 menu:category("Cheats", function(ga)
         ga:category("Player", function(gaa)
-                gaa:entry("Toggle Invincibility", function(ctx) Ess.Object.setInvincible(playerhost, hsmenu_bInvincibility.isEnabled, "HS-Menu Invincibility"); ctx:hint("INVINCIBILITY: " .. (hsmenu_bInvincibility.isEnabled and "ON" or "OFF")) end)
-                gaa:entry("Toggle Infinite Ammo", function(ctx) Ess.Human.setInfiniteAmmo(playerhost, hsmenu_bInfiniteAmmo.isEnabled); ctx:hint("AMMO: " .. (hsmenu_bInfiniteAmmo.isEnabled and "INFINITE" or "FINITE")) end)
+                gaa:entry("Toggle Invincibility", function(ctx) hsmenu_bInvincibility.isEnabled = not hsmenu_bInvincibility.isEnabled Ess.Object.setInvincible(playerHost, hsmenu_bInvincibility.isEnabled, "HS-Menu Invincibility") ctx:hint("INVINCIBILITY: " .. (hsmenu_bInvincibility.isEnabled and "ON" or "OFF")) end)
+                gaa:entry("Toggle Infinite Ammo", function(ctx) hsmenu_bInfiniteAmmo.isEnabled = not hsmenu_bInfiniteAmmo.isEnabled Ess.Human.setInfiniteAmmo(player, hsmenu_bInfiniteAmmo.isEnabled) ctx:hint("AMMO: " .. (hsmenu_bInfiniteAmmo.isEnabled and "INFINITE" or "FINITE")) end)
         end)
         ga:category("Cash", function(gba)
                 gba:category("Add Cash", function(gbb)
