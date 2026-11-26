@@ -21,7 +21,8 @@ menu:category("Cheats", function(ga)
         end)
         ga:category("Cash", function(gba)
                 gba:category("Add Cash", function(gbb)
-                        
+                        gbb:entry("Add $100", function(ctx) Ess.Player.giveCash(100); ctx:hint("ADDED: $100") end)
+                        gbb:entry("Add $1000", function(ctx) Ess.Player.giveCash(1000); ctx:hint("ADDED: $1000") end)
                 end)
                 gba:category("Remove Cash", function(gbc)
                         
