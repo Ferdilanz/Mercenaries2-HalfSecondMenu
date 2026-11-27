@@ -9,9 +9,9 @@ end
 
 local menu = Ess.UI.Menu{ title = "Half-Second Menu", key = KEYVAL }
 
-local hsmenu_bInvincibility = Ess.State("HS-Menu Invincibility", { isEnabled = false })
-local hsmenu_bInfiniteAmmo = Ess.State("HS-Menu Infinite Ammo", { isEnabled = false })
-local hsmenu_bInfiniteFuel = Ess.State("HS-Menu Infinite Fuel", { isEnabled = false })
+local hsmenu_Invincibility = Ess.State("HS-Menu Invincibility", { isEnabled = false })
+local hsmenu_InfiniteAmmo = Ess.State("HS-Menu Infinite Ammo", { isEnabled = false })
+local hsmenu_InfiniteFuel = Ess.State("HS-Menu Infinite Fuel", { isEnabled = false })
 local playerHost = Ess.Player.character(0)
 local playerClient = Ess.Player.character(1)
 
@@ -19,7 +19,7 @@ menu:category("Cheats", function(ga)
         ga:category("Player", function(gaa)
                 gaa:entry("Toggle Invincibility", function(ctx) hsmenu_Invincibility.isEnabled = not hsmenu_Invincibility.isEnabled Ess.Object.setInvincible(playerHost, hsmenu_Invincibility.isEnabled, "HS-Menu Invincibility"); ctx:hint("INVINCIBILITY: " .. (hsmenu_Invincibility.isEnabled and "ON" or "OFF")) end)
                 gaa:entry("Toggle Infinite Ammo", function(ctx) hsmenu_InfiniteAmmo.isEnabled = not hsmenu_InfiniteAmmo.isEnabled Ess.Human.setInfiniteAmmo(playerHost, hsmenu_InfiniteAmmo.isEnabled); ctx:hint("AMMO: " .. (hsmenu_InfiniteAmmo.isEnabled and "INFINITE" or "FINITE")) end)
-                gaa:entry("Toggle Infinite Fuel",function(ctx) hsmenu_InfiniteFuel.isEnabled = not hsmenu_InfiniteFuel.isEnabled Ess.Player.InfiniteFuel(playerHost, isEnabled); ctx:hint("FUEL: " .. (hsmenu_InfiniteFuel.isEnabled and "INFINITE" or "FINITE")) end)
+                gaa:entry("Toggle Infinite Fuel",function(ctx) hsmenu_InfiniteFuel.isEnabled = not hsmenu_InfiniteFuel.isEnabled Ess.Player.setInfiniteFuel(playerHost, isEnabled); ctx:hint("FUEL: " .. (hsmenu_InfiniteFuel.isEnabled and "INFINITE" or "FINITE")) end)
 		end)
         ga:category("Cash", function(gba)
                 gba:category("Add Cash", function(gbb)
